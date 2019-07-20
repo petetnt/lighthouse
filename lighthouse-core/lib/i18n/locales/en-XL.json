@@ -459,7 +459,7 @@
     "message": "{itemCount, plural,\n    =1 {1 ĉh́âín̂ f́ôún̂d́}\n    other {# ĉh́âín̂ś f̂óûńd̂}\n    }"
   },
   "lighthouse-core/audits/critical-request-chains.js | title": {
-    "message": "M̂ín̂ím̂íẑé Ĉŕît́îćâĺ R̂éq̂úêśt̂ś D̂ép̂t́ĥ"
+    "message": "M̂ín̂ím̂íẑé ĉŕît́îćâĺ r̂éq̂úêśt̂ś d̂ép̂t́ĥ"
   },
   "lighthouse-core/audits/deprecations.js | columnDeprecate": {
     "message": "D̂ép̂ŕêćât́îón̂ / Ẃâŕn̂ín̂ǵ"
