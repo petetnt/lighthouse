@@ -375,7 +375,7 @@
             "id": "critical-request-chains",
             "score": null,
             "scoreDisplayMode": "informative",
-            "title": "Minimize Critical Requests Depth"
+            "title": "Minimize critical requests depth"
         },
         "custom-controls-labels": {
             "description": "Custom interactive controls have associated labels, provided by aria-label or aria-labelledby. [Learn more](https://web.dev/custom-controls-labels/).",
@@ -2602,8 +2602,13 @@
             },
             "displayValue": "Third-party code blocked the main thread for 20\u00a0ms",
             "id": "third-party-summary",
+<<<<<<< HEAD
             "score": 1.0,
             "scoreDisplayMode": "binary",
+=======
+            "score": null,
+            "scoreDisplayMode": "informative",
+>>>>>>> proto
             "title": "Third-Party usage"
         },
         "time-to-first-byte": {
