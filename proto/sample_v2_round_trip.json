@@ -375,7 +375,7 @@
             "id": "critical-request-chains",
             "score": null,
             "scoreDisplayMode": "informative",
-            "title": "Minimize critical requests depth"
+            "title": "Avoid chaining critical requests"
         },
         "custom-controls-labels": {
             "description": "Custom interactive controls have associated labels, provided by aria-label or aria-labelledby. [Learn more](https://web.dev/custom-controls-labels/).",
@@ -2602,14 +2602,9 @@
             },
             "displayValue": "Third-party code blocked the main thread for 20\u00a0ms",
             "id": "third-party-summary",
-<<<<<<< HEAD
             "score": 1.0,
             "scoreDisplayMode": "binary",
-=======
-            "score": null,
-            "scoreDisplayMode": "informative",
->>>>>>> proto
-            "title": "Third-Party usage"
+            "title": "Limit third-party usage"
         },
         "time-to-first-byte": {
             "description": "Time To First Byte identifies the time at which your server sends a response. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/ttfb).",
