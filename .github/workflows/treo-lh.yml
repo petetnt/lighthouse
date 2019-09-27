@@ -1,7 +1,7 @@
-name: Lighthouse Audit
+name: Lighthouse
 on: push
 jobs:
-  lighthouse:
+  audit-on-push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -19,4 +19,4 @@ jobs:
           path: './results'
       - name: Finish
         run: |
-          echo Congrats, you're done
+          echo "Congrats, you're done"
