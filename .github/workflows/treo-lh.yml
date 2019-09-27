@@ -1,0 +1,22 @@
+name: Lighthouse Audit
+on: push
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Audit with Lighthouse
+        uses: treosh/lighthouse-ci-action@v1
+        with:
+          urls: |
+            https://github.com/GoogleChrome/lighthouse
+            https://developers.google.com/web/tools/lighthouse
+            https://googlechrome.github.io/lighthouse/viewer/
+      - name: Save results
+        uses: actions/upload-artifact@master
+        with:
+          name: lighthouse-results
+          path: './results'
+      - name: Finish
+        run: |
+          echo Congrats, you're done
