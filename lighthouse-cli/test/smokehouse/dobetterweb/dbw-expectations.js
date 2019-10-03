@@ -17,6 +17,7 @@ const expectations = [
       }, {
         id: 'wordpress',
       }],
+      InitialHtml: /^<!doctype html>.*DoBetterWeb Mega Tester.*aggressive-promise-polyfill.*<\/html>\n$/s,
       LinkElements: [
         {
           rel: 'stylesheet',

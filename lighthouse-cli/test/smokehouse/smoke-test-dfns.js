@@ -39,7 +39,7 @@ const smokeTests = [{
 }, {
   id: 'dbw',
   expectations: require('./dobetterweb/dbw-expectations.js'),
-  config: require('./dbw-config.js'),
+  config: require('../../../lighthouse-core/config/default-config.js'),
   batch: 'parallel-second',
 }, {
   id: 'redirects',
