@@ -430,6 +430,51 @@ describe('Main Thread Tasks', () => {
     ]);
   });
 
+  it('should handle nested tasks of the same name', () => {
+    /*
+    An artistic rendering of the below trace:
+      ████████████████TaskA██████████████████
+          ███████████TaskA████████████
+    */
+    const traceEvents = [
+      ...boilerplateTrace,
+      {ph: 'B', name: 'TaskA', pid, tid, ts: baseTs, args},
+      {ph: 'B', name: 'TaskA', pid, tid, ts: baseTs + 25e3, args},
+      {ph: 'E', name: 'TaskA', pid, tid, ts: baseTs + 75e3, args},
+      {ph: 'E', name: 'TaskA', pid, tid, ts: baseTs + 100e3, args},
+    ];
+
+    traceEvents.forEach(evt => Object.assign(evt, {cat: 'devtools.timeline'}));
+
+    const tasks = run({traceEvents});
+    expect(tasks).toEqual([
+      {
+        parent: undefined,
+        attributableURLs: [],
+
+        children: [tasks[1]],
+        event: traceEvents.find(event => event.name === 'TaskA' && event.ts === baseTs),
+        startTime: 0,
+        endTime: 100,
+        duration: 100,
+        selfTime: 50,
+        group: taskGroups.other,
+      },
+      {
+        parent: tasks[0],
+        attributableURLs: [],
+
+        children: [],
+        event: traceEvents.find(event => event.ts === baseTs + 25e3),
+        startTime: 25,
+        endTime: 75,
+        duration: 50,
+        selfTime: 50,
+        group: taskGroups.other,
+      },
+    ]);
+  });
+
   it('should handle child events that extend <1ms beyond parent event', () => {
     /*
     An artistic rendering of the below trace:
@@ -526,6 +571,68 @@ describe('Main Thread Tasks', () => {
     ]);
   });
 
+  it('should handle child events that start <1ms before parent event', () => {
+    /*
+    An artistic rendering of the below trace:
+    ████████████████TaskA██████████████████
+            █████████TaskB██████████████
+           ████████TaskC█████████
+    */
+    const traceEvents = [
+      ...boilerplateTrace,
+      {ph: 'B', name: 'TaskA', pid, tid, ts: baseTs, args},
+      {ph: 'B', name: 'TaskB', pid, tid, ts: baseTs + 25e3 + 50, args}, // this is invalid, but happens in practice
+      {ph: 'B', name: 'TaskC', pid, tid, ts: baseTs + 25e3, args},
+      {ph: 'E', name: 'TaskC', pid, tid, ts: baseTs + 60e3, args},
+      {ph: 'E', name: 'TaskB', pid, tid, ts: baseTs + 90e3, args},
+      {ph: 'E', name: 'TaskA', pid, tid, ts: baseTs + 100e3, args},
+      {ph: 'I', name: 'MarkerToPushOutTraceEnd', pid, tid, ts: baseTs + 110e3, args},
+    ];
+
+    traceEvents.forEach(evt => Object.assign(evt, {cat: 'devtools.timeline'}));
+
+    const tasks = run({traceEvents});
+    const [taskA, taskB, taskC] = tasks;
+    expect(tasks).toEqual([
+      {
+        parent: undefined,
+        attributableURLs: [],
+
+        children: [taskB],
+        event: traceEvents.find(event => event.name === 'TaskA'),
+        startTime: 0,
+        endTime: 100,
+        duration: 100,
+        selfTime: 35,
+        group: taskGroups.other,
+      },
+      {
+        parent: taskA,
+        attributableURLs: [],
+
+        children: [taskC],
+        event: traceEvents.find(event => event.name === 'TaskB' && event.ph === 'B'),
+        startTime: 25,
+        endTime: 90,
+        duration: 65,
+        selfTime: 30,
+        group: taskGroups.other,
+      },
+      {
+        parent: taskB,
+        attributableURLs: [],
+
+        children: [],
+        event: traceEvents.find(event => event.name === 'TaskC' && event.ph === 'B'),
+        startTime: 25,
+        endTime: 60,
+        duration: 35,
+        selfTime: 35,
+        group: taskGroups.other,
+      },
+    ]);
+  });
+
   // Invalid sets of events.
   // All of these should have `traceEnd` pushed out to avoid falling into one of our mitigation scenarios.
   const invalidEventSets = [
@@ -558,6 +665,15 @@ describe('Main Thread Tasks', () => {
       // TaskB is missing a B event after an X
       {ph: 'X', name: 'TaskA', pid, tid, ts: baseTs, dur: 100e3, args},
       {ph: 'E', name: 'TaskB', pid, tid, ts: baseTs + 10e3, args},
+    ],
+    [
+      // TaskA is starting .5ms too late, but TaskB already has a child
+      {ph: 'B', name: 'TaskA', pid, tid, ts: baseTs + 500, args},
+      {ph: 'B', name: 'TaskB', pid, tid, ts: baseTs, args},
+      {ph: 'X', name: 'TaskC', pid, tid, ts: baseTs + 50, dur: 100, args},
+      {ph: 'E', name: 'TaskB', pid, tid, ts: baseTs + 100e3, args},
+      {ph: 'E', name: 'TaskA', pid, tid, ts: baseTs + 115e3, args},
+      {ph: 'I', name: 'MarkerToPushOutTraceEnd', pid, tid, ts: baseTs + 200e3, args},
     ],
   ];
 
