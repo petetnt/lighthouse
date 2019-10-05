@@ -29,24 +29,25 @@ const lighthouse = (function getLighthouseCoreBundled() {
   };
 
   const lighthouseBundledCode = fs.readFileSync('dist/test-bundle.js', 'utf-8')
-    // Some modules are impossible to bundle. So we cheat by leaning on globalThis.
+    // Some modules are impossible to bundle. So we cheat by leaning on global.
     // cri.js will be able to use native require. It's a minor defect - it means that some usages
     // of lh-error.js will not come from the bundled code.
-    .replace('new ChromeProtocol', 'new globalThis.ChromeProtocol')
+    // TODO: use `globalThis` when we drop Node 10.
+    .replace('new ChromeProtocol', 'new global.ChromeProtocol')
     // Needed for asset-saver.js.
-    .replace(/mkdirp\./g, 'globalThis.mkdirp.')
-    .replace(/rimraf\./g, 'globalThis.rimraf.')
-    .replace(/fs\.(writeFileSync|createWriteStream)/g, 'globalThis.$&');
+    .replace(/mkdirp\./g, 'global.mkdirp.')
+    .replace(/rimraf\./g, 'global.rimraf.')
+    .replace(/fs\.(writeFileSync|createWriteStream)/g, 'global.$&');
 
   /* eslint-disable no-undef */
   // @ts-ignore
-  globalThis.ChromeProtocol = ChromeProtocol;
+  global.ChromeProtocol = ChromeProtocol;
   // @ts-ignore
-  globalThis.mkdirp = mkdirp;
+  global.mkdirp = mkdirp;
   // @ts-ignore
-  globalThis.rimraf = rimraf;
+  global.rimraf = rimraf;
   // @ts-ignore
-  globalThis.fs = fs;
+  global.fs = fs;
   /*  eslint-enable no-undef */
 
   const bundledLighthouseRequire = eval(lighthouseBundledCode);
