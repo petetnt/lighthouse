@@ -17,7 +17,7 @@ const smokeTests = require('./smoke-test-dfns.js');
 const {collateResults, report} = require('./smokehouse-report.js');
 
 /**
- * @param {Smokehouse.RunnerOptions} options
+ * @param {Smokehouse.FirehouseOptions} options
  */
 async function runSmokes(options) {
   const {runLighthouse, filter, skip, modify} = options;
