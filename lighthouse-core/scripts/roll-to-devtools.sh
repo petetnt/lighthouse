@@ -38,15 +38,9 @@ fe_lh_dir="$frontend_dir/audits/lighthouse"
 lh_bg_js="dist/lighthouse-dt-bundle.js"
 fe_worker_dir="$frontend_dir/audits_worker/lighthouse"
 
-lh_firehouse_js="dist/firehouse-bundle.js"
-lh_test_runner_dir="$frontend_dir/audits_test_runner/lighthouse"
-
 # copy lighthouse-dt-bundle (potentially stale)
 cp -pPR "$lh_bg_js" "$fe_worker_dir/lighthouse-dt-bundle.js"
 echo -e "$check (Potentially stale) lighthouse-dt-bundle copied."
-
-cp -pPR "$lh_firehouse_js" "$lh_test_runner_dir/firehouse-bundle.js"
-echo -e "\033[96m ✓\033[39m (Potentially stale) firehouse-bundle copied."
 
 # copy report generator + cached resources into $fe_lh_dir
 # use dir/* format to copy over all files in dt-report-resources directly to $fe_lh_dir
@@ -65,5 +59,3 @@ echo -e "$check Locale JSON files copied."
 echo ""
 echo "Done. To rebase the test expectations, run: "
 echo "    yarn --cwd ~/chromium/src/third_party/blink/renderer/devtools test 'http/tests/devtools/audits/*.js' --reset-results"
-
-echo "To run smoke tests: ninja -C $chromium_dir/out/Release devtools_frontend_resources && yarn --cwd $chromium_dir/third_party/blink/renderer/devtools test 'http/tests/devtools/audits/audits-smoke-run.js'"

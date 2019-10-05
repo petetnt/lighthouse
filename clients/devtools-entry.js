@@ -32,14 +32,13 @@ function getDefaultConfigForCategories(categoryIDs) {
  * @param {string} url
  * @param {LH.Flags} flags Lighthouse flags.
  * @param {Array<string>} categoryIDs Name values of categories to include.
- * @param {LH.Config.Json=} config Optional config.
  * @return {Promise<LH.RunnerResult|void>}
  */
-function runLighthouseInWorker(port, url, flags, categoryIDs, config) {
+function runLighthouseInWorker(port, url, flags, categoryIDs) {
   // Default to 'info' logging level.
   flags.logLevel = flags.logLevel || 'info';
   flags.channel = 'devtools';
-  config = config || getDefaultConfigForCategories(categoryIDs);
+  const config = getDefaultConfigForCategories(categoryIDs);
   const connection = new RawProtocol(port);
 
   return lighthouse(url, flags, config, connection);
