@@ -30,6 +30,42 @@
             "scoreDisplayMode": "notApplicable",
             "title": "`[aria-*]` attributes match their roles"
         },
+        "aria-hidden-body": {
+            "description": "Assistive technologies, like screen readers, work inconsistently when `aria-hidden=\"true\"` is set on the document `<body>`. [Learn more](https://dequeuniversity.com/rules/axe/3.3/aria-hidden-body).",
+            "details": {
+                "headings": [],
+                "items": [],
+                "type": "table"
+            },
+            "id": "aria-hidden-body",
+            "score": 1.0,
+            "scoreDisplayMode": "binary",
+            "title": "`[aria-hidden=\"true\"]` is not present on the document `<body>`"
+        },
+        "aria-hidden-focus": {
+            "description": "Focusable descendents within an `[aria-hidden=\"true\"]` element will not be available to assistive technologies like screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/aria-hidden-focus).",
+            "details": {
+                "headings": [],
+                "items": [],
+                "type": "table"
+            },
+            "id": "aria-hidden-focus",
+            "score": 1.0,
+            "scoreDisplayMode": "binary",
+            "title": "`[aria-hidden=\"true\"]` elements do not contain focusable descendents"
+        },
+        "aria-input-field-name": {
+            "description": "When an input field doesn't have an accessible name, screen readers announce it with a generic name, making it unusable for users who rely on screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/aria-input-field-name).",
+            "details": {
+                "headings": [],
+                "items": [],
+                "type": "table"
+            },
+            "id": "aria-input-field-name",
+            "score": 1.0,
+            "scoreDisplayMode": "binary",
+            "title": "All ARIA input fields have accessible names"
+        },
         "aria-required-attr": {
             "description": "Some ARIA roles have required attributes that describe the state of the element to screen readers. [Learn more](https://web.dev/aria-required-attr/).",
             "id": "aria-required-attr",
@@ -57,6 +93,18 @@
             "score": null,
             "scoreDisplayMode": "notApplicable",
             "title": "`[role]` values are valid"
+        },
+        "aria-toggle-field-name": {
+            "description": "When a toggle field doesn't have an accessible name, screen readers announce it with a generic name, making it unusable for users who rely on screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/aria-toggle-field-label).",
+            "details": {
+                "headings": [],
+                "items": [],
+                "type": "table"
+            },
+            "id": "aria-toggle-field-name",
+            "score": 1.0,
+            "scoreDisplayMode": "binary",
+            "title": "All ARIA toggle fields have accessible names"
         },
         "aria-valid-attr": {
             "description": "Assistive technologies, like screen readers, can't interpret ARIA attributes with invalid names. [Learn more](https://web.dev/aria-valid-attr/).",
@@ -564,6 +612,30 @@
             "scoreDisplayMode": "binary",
             "title": "`[id]` attributes on the page are unique"
         },
+        "duplicate-id-active": {
+            "description": "The value of an id attribute on focusable elements must be unique to prevent other instances from being overlooked by assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/duplicate-id-active).",
+            "details": {
+                "headings": [],
+                "items": [],
+                "type": "table"
+            },
+            "id": "duplicate-id-active",
+            "score": 1.0,
+            "scoreDisplayMode": "binary",
+            "title": "`[id]` attributes on active, focusable elements are unique"
+        },
+        "duplicate-id-aria": {
+            "description": "The value of an ARIA ID must be unique to prevent other instances from being overlooked by assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/duplicate-id-aria).",
+            "details": {
+                "headings": [],
+                "items": [],
+                "type": "table"
+            },
+            "id": "duplicate-id-aria",
+            "score": 1.0,
+            "scoreDisplayMode": "binary",
+            "title": "All ARIA IDs are unique"
+        },
         "efficient-animated-content": {
             "description": "Large GIFs are inefficient for delivering animated content. Consider using MPEG4/WebM videos for animations and PNG/WebP for static images instead of GIF to save network bytes. [Learn more](https://web.dev/efficient-animated-content)",
             "details": {
@@ -793,6 +865,18 @@
             "scoreDisplayMode": "binary",
             "title": "Document uses legible font sizes"
         },
+        "form-field-multiple-labels": {
+            "description": "Form fields with multiple labels can cause inconsistencies for some assistive technologies like screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/form-field-multiple-labels).",
+            "details": {
+                "headings": [],
+                "items": [],
+                "type": "table"
+            },
+            "id": "form-field-multiple-labels",
+            "score": 1.0,
+            "scoreDisplayMode": "binary",
+            "title": "No Form fields have multiple labels"
+        },
         "frame-title": {
             "description": "Screen reader users rely on frame titles to describe the contents of frames. [Learn more](https://web.dev/frame-title/).",
             "id": "frame-title",
@@ -838,6 +922,18 @@
             "score": null,
             "scoreDisplayMode": "manual",
             "title": "Headings don't skip levels"
+        },
+        "heading-order": {
+            "description": "Properly ordered headings help convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/heading-order).",
+            "details": {
+                "headings": [],
+                "items": [],
+                "type": "table"
+            },
+            "id": "heading-order",
+            "score": 1.0,
+            "scoreDisplayMode": "binary",
+            "title": "Heading elements appear in a sequentially-descending order"
         },
         "hreflang": {
             "description": "hreflang links tell search engines what version of a page they should list in search results for a given language or region. [Learn more](https://web.dev/hreflang).",
@@ -895,6 +991,18 @@
             "score": null,
             "scoreDisplayMode": "notApplicable",
             "title": "`<html>` element has a valid value for its `[lang]` attribute"
+        },
+        "html-xml-lang-mismatch": {
+            "description": "Mismatched language declarations may result in a screen reader not announcing the page's text correctly. [Learn more](https://dequeuniversity.com/rules/axe/3.3/html-xml-lang-mismatch).",
+            "details": {
+                "headings": [],
+                "items": [],
+                "type": "table"
+            },
+            "id": "html-xml-lang-mismatch",
+            "score": 1.0,
+            "scoreDisplayMode": "binary",
+            "title": "The `<html>` `[lang]` attribute matches the `[xml:lang]` attribute, if present"
         },
         "http-status-code": {
             "description": "Pages with unsuccessful HTTP status codes may not be indexed properly. [Learn more](https://web.dev/http-status-code).",
@@ -3232,6 +3340,21 @@
                 },
                 {
                     "group": "a11y-aria",
+                    "id": "aria-hidden-body",
+                    "weight": 10.0
+                },
+                {
+                    "group": "a11y-aria",
+                    "id": "aria-hidden-focus",
+                    "weight": 3.0
+                },
+                {
+                    "group": "a11y-aria",
+                    "id": "aria-input-field-name",
+                    "weight": 3.0
+                },
+                {
+                    "group": "a11y-aria",
                     "id": "aria-required-attr",
                     "weight": 0.0
                 },
@@ -3249,6 +3372,11 @@
                     "group": "a11y-aria",
                     "id": "aria-roles",
                     "weight": 0.0
+                },
+                {
+                    "group": "a11y-aria",
+                    "id": "aria-toggle-field-name",
+                    "weight": 3.0
                 },
                 {
                     "group": "a11y-aria",
@@ -3301,9 +3429,29 @@
                     "weight": 1.0
                 },
                 {
+                    "group": "a11y-navigation",
+                    "id": "duplicate-id-active",
+                    "weight": 3.0
+                },
+                {
+                    "group": "a11y-aria",
+                    "id": "duplicate-id-aria",
+                    "weight": 10.0
+                },
+                {
+                    "group": "a11y-names-labels",
+                    "id": "form-field-multiple-labels",
+                    "weight": 2.0
+                },
+                {
                     "group": "a11y-names-labels",
                     "id": "frame-title",
                     "weight": 0.0
+                },
+                {
+                    "group": "a11y-navigation",
+                    "id": "heading-order",
+                    "weight": 2.0
                 },
                 {
                     "group": "a11y-language",
@@ -3314,6 +3462,11 @@
                     "group": "a11y-language",
                     "id": "html-lang-valid",
                     "weight": 0.0
+                },
+                {
+                    "group": "a11y-language",
+                    "id": "html-xml-lang-mismatch",
+                    "weight": 2.0
                 },
                 {
                     "group": "a11y-names-labels",
@@ -3443,7 +3596,7 @@
             "description": "These checks highlight opportunities to [improve the accessibility of your web app](https://developers.google.com/web/fundamentals/accessibility). Only a subset of accessibility issues can be automatically detected so manual testing is also encouraged.",
             "id": "accessibility",
             "manualDescription": "These items address areas which an automated testing tool cannot cover. Learn more in our guide on [conducting an accessibility review](https://developers.google.com/web/fundamentals/accessibility/how-to-review).",
-            "score": 0.46,
+            "score": 0.67,
             "title": "Accessibility"
         },
         "best-practices": {
@@ -4509,6 +4662,24 @@
             {
                 "duration": 100.0,
                 "entryType": "measure",
+                "name": "lh:audit:aria-hidden-body",
+                "startTime": 0.0
+            },
+            {
+                "duration": 100.0,
+                "entryType": "measure",
+                "name": "lh:audit:aria-hidden-focus",
+                "startTime": 0.0
+            },
+            {
+                "duration": 100.0,
+                "entryType": "measure",
+                "name": "lh:audit:aria-input-field-name",
+                "startTime": 0.0
+            },
+            {
+                "duration": 100.0,
+                "entryType": "measure",
                 "name": "lh:audit:aria-required-attr",
                 "startTime": 0.0
             },
@@ -4528,6 +4699,12 @@
                 "duration": 100.0,
                 "entryType": "measure",
                 "name": "lh:audit:aria-roles",
+                "startTime": 0.0
+            },
+            {
+                "duration": 100.0,
+                "entryType": "measure",
+                "name": "lh:audit:aria-toggle-field-name",
                 "startTime": 0.0
             },
             {
@@ -4593,7 +4770,31 @@
             {
                 "duration": 100.0,
                 "entryType": "measure",
+                "name": "lh:audit:duplicate-id-active",
+                "startTime": 0.0
+            },
+            {
+                "duration": 100.0,
+                "entryType": "measure",
+                "name": "lh:audit:duplicate-id-aria",
+                "startTime": 0.0
+            },
+            {
+                "duration": 100.0,
+                "entryType": "measure",
+                "name": "lh:audit:form-field-multiple-labels",
+                "startTime": 0.0
+            },
+            {
+                "duration": 100.0,
+                "entryType": "measure",
                 "name": "lh:audit:frame-title",
+                "startTime": 0.0
+            },
+            {
+                "duration": 100.0,
+                "entryType": "measure",
+                "name": "lh:audit:heading-order",
                 "startTime": 0.0
             },
             {
@@ -4606,6 +4807,12 @@
                 "duration": 100.0,
                 "entryType": "measure",
                 "name": "lh:audit:html-lang-valid",
+                "startTime": 0.0
+            },
+            {
+                "duration": 100.0,
+                "entryType": "measure",
+                "name": "lh:audit:html-xml-lang-mismatch",
                 "startTime": 0.0
             },
             {
