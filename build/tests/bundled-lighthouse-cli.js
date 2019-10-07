@@ -53,6 +53,8 @@ const lighthouse = (function getLighthouseCoreBundled() {
   const bundledLighthouseRequire = eval(lighthouseBundledCode);
 
   // Find the lighthouse module.
+  // Every module is given an id (starting at 1). The core lighthouse module
+  // is the only module that is a function named `lighthouse`.
   /** @type {import('../../lighthouse-core/index.js')} */
   let lighthouse;
   for (let i = 1; i < 1000; i++) {
