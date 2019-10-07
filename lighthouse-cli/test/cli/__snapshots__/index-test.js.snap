@@ -151,6 +151,15 @@ Object {
       "path": "accessibility/aria-allowed-attr",
     },
     Object {
+      "path": "accessibility/aria-hidden-body",
+    },
+    Object {
+      "path": "accessibility/aria-hidden-focus",
+    },
+    Object {
+      "path": "accessibility/aria-input-field-name",
+    },
+    Object {
       "path": "accessibility/aria-required-attr",
     },
     Object {
@@ -161,6 +170,9 @@ Object {
     },
     Object {
       "path": "accessibility/aria-roles",
+    },
+    Object {
+      "path": "accessibility/aria-toggle-field-name",
     },
     Object {
       "path": "accessibility/aria-valid-attr-value",
@@ -193,13 +205,28 @@ Object {
       "path": "accessibility/duplicate-id",
     },
     Object {
+      "path": "accessibility/duplicate-id-active",
+    },
+    Object {
+      "path": "accessibility/duplicate-id-aria",
+    },
+    Object {
+      "path": "accessibility/form-field-multiple-labels",
+    },
+    Object {
       "path": "accessibility/frame-title",
+    },
+    Object {
+      "path": "accessibility/heading-order",
     },
     Object {
       "path": "accessibility/html-has-lang",
     },
     Object {
       "path": "accessibility/html-lang-valid",
+    },
+    Object {
+      "path": "accessibility/html-xml-lang-mismatch",
     },
     Object {
       "path": "accessibility/image-alt",
@@ -403,6 +430,21 @@ Object {
         },
         Object {
           "group": "a11y-aria",
+          "id": "aria-hidden-body",
+          "weight": 10,
+        },
+        Object {
+          "group": "a11y-aria",
+          "id": "aria-hidden-focus",
+          "weight": 3,
+        },
+        Object {
+          "group": "a11y-aria",
+          "id": "aria-input-field-name",
+          "weight": 3,
+        },
+        Object {
+          "group": "a11y-aria",
           "id": "aria-required-attr",
           "weight": 10,
         },
@@ -420,6 +462,11 @@ Object {
           "group": "a11y-aria",
           "id": "aria-roles",
           "weight": 10,
+        },
+        Object {
+          "group": "a11y-aria",
+          "id": "aria-toggle-field-name",
+          "weight": 3,
         },
         Object {
           "group": "a11y-aria",
@@ -472,9 +519,29 @@ Object {
           "weight": 1,
         },
         Object {
+          "group": "a11y-navigation",
+          "id": "duplicate-id-active",
+          "weight": 3,
+        },
+        Object {
+          "group": "a11y-aria",
+          "id": "duplicate-id-aria",
+          "weight": 10,
+        },
+        Object {
+          "group": "a11y-names-labels",
+          "id": "form-field-multiple-labels",
+          "weight": 2,
+        },
+        Object {
           "group": "a11y-names-labels",
           "id": "frame-title",
           "weight": 3,
+        },
+        Object {
+          "group": "a11y-navigation",
+          "id": "heading-order",
+          "weight": 2,
         },
         Object {
           "group": "a11y-language",
@@ -485,6 +552,11 @@ Object {
           "group": "a11y-language",
           "id": "html-lang-valid",
           "weight": 3,
+        },
+        Object {
+          "group": "a11y-language",
+          "id": "html-xml-lang-mismatch",
+          "weight": 2,
         },
         Object {
           "group": "a11y-names-labels",
