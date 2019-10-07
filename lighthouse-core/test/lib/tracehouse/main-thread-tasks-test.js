@@ -459,6 +459,7 @@ describe('Main Thread Tasks', () => {
         duration: 100,
         selfTime: 50,
         group: taskGroups.other,
+        unbounded: false,
       },
       {
         parent: tasks[0],
@@ -471,6 +472,7 @@ describe('Main Thread Tasks', () => {
         duration: 50,
         selfTime: 50,
         group: taskGroups.other,
+        unbounded: false,
       },
     ]);
   });
@@ -586,7 +588,6 @@ describe('Main Thread Tasks', () => {
       {ph: 'E', name: 'TaskC', pid, tid, ts: baseTs + 60e3, args},
       {ph: 'E', name: 'TaskB', pid, tid, ts: baseTs + 90e3, args},
       {ph: 'E', name: 'TaskA', pid, tid, ts: baseTs + 100e3, args},
-      {ph: 'I', name: 'MarkerToPushOutTraceEnd', pid, tid, ts: baseTs + 110e3, args},
     ];
 
     traceEvents.forEach(evt => Object.assign(evt, {cat: 'devtools.timeline'}));
@@ -605,6 +606,7 @@ describe('Main Thread Tasks', () => {
         duration: 100,
         selfTime: 35,
         group: taskGroups.other,
+        unbounded: false,
       },
       {
         parent: taskA,
@@ -617,6 +619,7 @@ describe('Main Thread Tasks', () => {
         duration: 65,
         selfTime: 30,
         group: taskGroups.other,
+        unbounded: false,
       },
       {
         parent: taskB,
@@ -629,6 +632,7 @@ describe('Main Thread Tasks', () => {
         duration: 35,
         selfTime: 35,
         group: taskGroups.other,
+        unbounded: false,
       },
     ]);
   });
