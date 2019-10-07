@@ -6,8 +6,9 @@
 'use strict';
 
 /**
- * @fileoverview Smoke test runner for non-Node environments. Supports skipping and modifiying
- * expectations to match the environment.
+ * @fileoverview Smoke test runner.
+ * Used to test channels other than npm (`run-smoke.js` handles that).
+ * Supports skipping and modifiying expectations to match the environment.
  */
 
 /* eslint-disable no-console */
