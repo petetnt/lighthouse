@@ -1148,6 +1148,9 @@ Object {
           "path": "iframe-elements",
         },
         Object {
+          "path": "initial-html",
+        },
+        Object {
           "path": "dobetterweb/appcache",
         },
         Object {
