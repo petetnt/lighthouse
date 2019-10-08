@@ -27,7 +27,7 @@
     "message": "`[aria-hidden=\"true\"]` is not present on the document `<body>`"
   },
   "lighthouse-core/audits/accessibility/aria-hidden-focus.js | description": {
-    "message": "Focusable descendents within an `[aria-hidden=\"true\"]` element will not be available to assistive technologies like screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/aria-hidden-focus)."
+    "message": "Focusable descendents within an `[aria-hidden=\"true\"]` element prevent those interactive elements from being available to users of assistive technologies like screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/aria-hidden-focus)."
   },
   "lighthouse-core/audits/accessibility/aria-hidden-focus.js | failureTitle": {
     "message": "`[aria-hidden=\"true\"]` elements contain focusable descendents"
@@ -174,7 +174,7 @@
     "message": "Document has a `<title>` element"
   },
   "lighthouse-core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "The value of an id attribute on focusable elements must be unique to prevent other instances from being overlooked by assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/duplicate-id-active)."
+    "message": "All focusable elements must have a unique `id` to ensure that they're visible to assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/duplicate-id-active)."
   },
   "lighthouse-core/audits/accessibility/duplicate-id-active.js | failureTitle": {
     "message": "`[id]` attributes on active, focusable elements are not unique"
@@ -201,7 +201,7 @@
     "message": "`[id]` attributes on the page are unique"
   },
   "lighthouse-core/audits/accessibility/form-field-multiple-labels.js | description": {
-    "message": "Form fields with multiple labels can cause inconsistencies for some assistive technologies like screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/form-field-multiple-labels)."
+    "message": "Form fields with multiple labels can be confusingly announced by assistive technologies like screen readers which use either the first, the last, or all of the labels. [Learn more](https://dequeuniversity.com/rules/axe/3.3/form-field-multiple-labels)."
   },
   "lighthouse-core/audits/accessibility/form-field-multiple-labels.js | failureTitle": {
     "message": "Form fields have multiple labels"
@@ -219,7 +219,7 @@
     "message": "`<frame>` or `<iframe>` elements have a title"
   },
   "lighthouse-core/audits/accessibility/heading-order.js | description": {
-    "message": "Properly ordered headings help convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/heading-order)."
+    "message": "Properly ordered headings that do not skip levels convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/heading-order)."
   },
   "lighthouse-core/audits/accessibility/heading-order.js | failureTitle": {
     "message": "Heading elements are not in a sequentially-descending order"
@@ -246,13 +246,13 @@
     "message": "`<html>` element has a valid value for its `[lang]` attribute"
   },
   "lighthouse-core/audits/accessibility/html-xml-lang-mismatch.js | description": {
-    "message": "Mismatched language declarations may result in a screen reader not announcing the page's text correctly. [Learn more](https://dequeuniversity.com/rules/axe/3.3/html-xml-lang-mismatch)."
+    "message": "Mismatched language declarations may result in a screen reader announcing the page's text incorrectly. [Learn more](https://dequeuniversity.com/rules/axe/3.3/html-xml-lang-mismatch)."
   },
   "lighthouse-core/audits/accessibility/html-xml-lang-mismatch.js | failureTitle": {
     "message": "The `<html>` `[lang]` attribute does not match the `[xml:lang]` attribute"
   },
   "lighthouse-core/audits/accessibility/html-xml-lang-mismatch.js | title": {
-    "message": "The `<html>` `[lang]` attribute matches the `[xml:lang]` attribute, if present"
+    "message": "The `<html>` `[lang]` attribute matches the `[xml:lang]` attribute"
   },
   "lighthouse-core/audits/accessibility/image-alt.js | description": {
     "message": "Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute. [Learn more](https://web.dev/image-alt/)."

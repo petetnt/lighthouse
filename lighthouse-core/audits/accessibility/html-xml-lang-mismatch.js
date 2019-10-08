@@ -16,11 +16,11 @@ const i18n = require('../../lib/i18n/i18n.js');
 
 const UIStrings = {
   /** Title of an accesibility audit that checks if the `xml:lang` language attribute (if it is present) matches the value of the `lang` attribute. This title is descriptive of the successful state and is shown to users when no user action is required. */
-  title: 'The `<html>` `[lang]` attribute matches the `[xml:lang]` attribute, if present',
+  title: 'The `<html>` `[lang]` attribute matches the `[xml:lang]` attribute',
   /** Title of an accesibility audit that checks if the `xml:lang` language attribute (if it is present) matches the value of the `lang` attribute. This title is descriptive of the failing state and is shown to users when there is a failure that needs to be addressed. */
   failureTitle: 'The `<html>` `[lang]` attribute does not match the `[xml:lang]` attribute',
   /** Description of a Lighthouse audit that tells the user *why* they should try to pass. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
-  description: 'Mismatched language declarations may result in a screen reader not announcing the page\'s text correctly. [Learn more](https://dequeuniversity.com/rules/axe/3.3/html-xml-lang-mismatch).',
+  description: 'Mismatched language declarations may result in a screen reader announcing the page\'s text incorrectly. [Learn more](https://dequeuniversity.com/rules/axe/3.3/html-xml-lang-mismatch).',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);

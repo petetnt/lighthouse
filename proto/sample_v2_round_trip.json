@@ -43,7 +43,7 @@
             "title": "`[aria-hidden=\"true\"]` is not present on the document `<body>`"
         },
         "aria-hidden-focus": {
-            "description": "Focusable descendents within an `[aria-hidden=\"true\"]` element will not be available to assistive technologies like screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/aria-hidden-focus).",
+            "description": "Focusable descendents within an `[aria-hidden=\"true\"]` element prevent those interactive elements from being available to users of assistive technologies like screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/aria-hidden-focus).",
             "details": {
                 "headings": [],
                 "items": [],
@@ -613,7 +613,7 @@
             "title": "`[id]` attributes on the page are unique"
         },
         "duplicate-id-active": {
-            "description": "The value of an id attribute on focusable elements must be unique to prevent other instances from being overlooked by assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/duplicate-id-active).",
+            "description": "All focusable elements must have a unique `id` to ensure that they're visible to assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/duplicate-id-active).",
             "details": {
                 "headings": [],
                 "items": [],
@@ -866,7 +866,7 @@
             "title": "Document uses legible font sizes"
         },
         "form-field-multiple-labels": {
-            "description": "Form fields with multiple labels can cause inconsistencies for some assistive technologies like screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/form-field-multiple-labels).",
+            "description": "Form fields with multiple labels can be confusingly announced by assistive technologies like screen readers which use either the first, the last, or all of the labels. [Learn more](https://dequeuniversity.com/rules/axe/3.3/form-field-multiple-labels).",
             "details": {
                 "headings": [],
                 "items": [],
@@ -924,7 +924,7 @@
             "title": "Headings don't skip levels"
         },
         "heading-order": {
-            "description": "Properly ordered headings help convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/heading-order).",
+            "description": "Properly ordered headings that do not skip levels convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/heading-order).",
             "details": {
                 "headings": [],
                 "items": [],
@@ -993,7 +993,7 @@
             "title": "`<html>` element has a valid value for its `[lang]` attribute"
         },
         "html-xml-lang-mismatch": {
-            "description": "Mismatched language declarations may result in a screen reader not announcing the page's text correctly. [Learn more](https://dequeuniversity.com/rules/axe/3.3/html-xml-lang-mismatch).",
+            "description": "Mismatched language declarations may result in a screen reader announcing the page's text incorrectly. [Learn more](https://dequeuniversity.com/rules/axe/3.3/html-xml-lang-mismatch).",
             "details": {
                 "headings": [],
                 "items": [],
@@ -1002,7 +1002,7 @@
             "id": "html-xml-lang-mismatch",
             "score": 1.0,
             "scoreDisplayMode": "binary",
-            "title": "The `<html>` `[lang]` attribute matches the `[xml:lang]` attribute, if present"
+            "title": "The `<html>` `[lang]` attribute matches the `[xml:lang]` attribute"
         },
         "http-status-code": {
             "description": "Pages with unsuccessful HTTP status codes may not be indexed properly. [Learn more](https://web.dev/http-status-code).",

@@ -1578,7 +1578,7 @@
     "aria-hidden-focus": {
       "id": "aria-hidden-focus",
       "title": "`[aria-hidden=\"true\"]` elements do not contain focusable descendents",
-      "description": "Focusable descendents within an `[aria-hidden=\"true\"]` element will not be available to assistive technologies like screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/aria-hidden-focus).",
+      "description": "Focusable descendents within an `[aria-hidden=\"true\"]` element prevent those interactive elements from being available to users of assistive technologies like screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/aria-hidden-focus).",
       "score": 1,
       "scoreDisplayMode": "binary",
       "details": {
@@ -1773,7 +1773,7 @@
     "duplicate-id-active": {
       "id": "duplicate-id-active",
       "title": "`[id]` attributes on active, focusable elements are unique",
-      "description": "The value of an id attribute on focusable elements must be unique to prevent other instances from being overlooked by assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/duplicate-id-active).",
+      "description": "All focusable elements must have a unique `id` to ensure that they're visible to assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/duplicate-id-active).",
       "score": 1,
       "scoreDisplayMode": "binary",
       "details": {
@@ -1797,7 +1797,7 @@
     "form-field-multiple-labels": {
       "id": "form-field-multiple-labels",
       "title": "No Form fields have multiple labels",
-      "description": "Form fields with multiple labels can cause inconsistencies for some assistive technologies like screen readers. [Learn more](https://dequeuniversity.com/rules/axe/3.3/form-field-multiple-labels).",
+      "description": "Form fields with multiple labels can be confusingly announced by assistive technologies like screen readers which use either the first, the last, or all of the labels. [Learn more](https://dequeuniversity.com/rules/axe/3.3/form-field-multiple-labels).",
       "score": 1,
       "scoreDisplayMode": "binary",
       "details": {
@@ -1816,7 +1816,7 @@
     "heading-order": {
       "id": "heading-order",
       "title": "Heading elements appear in a sequentially-descending order",
-      "description": "Properly ordered headings help convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/heading-order).",
+      "description": "Properly ordered headings that do not skip levels convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies. [Learn more](https://dequeuniversity.com/rules/axe/3.3/heading-order).",
       "score": 1,
       "scoreDisplayMode": "binary",
       "details": {
@@ -1872,8 +1872,8 @@
     },
     "html-xml-lang-mismatch": {
       "id": "html-xml-lang-mismatch",
-      "title": "The `<html>` `[lang]` attribute matches the `[xml:lang]` attribute, if present",
-      "description": "Mismatched language declarations may result in a screen reader not announcing the page's text correctly. [Learn more](https://dequeuniversity.com/rules/axe/3.3/html-xml-lang-mismatch).",
+      "title": "The `<html>` `[lang]` attribute matches the `[xml:lang]` attribute",
+      "description": "Mismatched language declarations may result in a screen reader announcing the page's text incorrectly. [Learn more](https://dequeuniversity.com/rules/axe/3.3/html-xml-lang-mismatch).",
       "score": 1,
       "scoreDisplayMode": "binary",
       "details": {
