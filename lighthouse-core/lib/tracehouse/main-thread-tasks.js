@@ -268,25 +268,25 @@ class MainThreadTasks {
           ) {
             // The parent started less than 1ms before the child, we'll let it slide by swapping the two,
             // and increasing the duration of the parent.
-            const actualParentTask = nextTask;
-            const actualChildTask = currentTask;
-            const actualGrandparentTask = currentTask.parent;
-            if (actualGrandparentTask) {
-              if (actualGrandparentTask.children[actualGrandparentTask.children.length - 1] !== actualChildTask) {
+            const parentTask = nextTask;
+            const childTask = currentTask;
+            const grandparentTask = currentTask.parent;
+            if (grandparentTask) {
+              if (grandparentTask.children[grandparentTask.children.length - 1] !== childTask) {
                 // The child we need to swap should always be the most recently added child.
                 // But if not then there's a serious bug in this code, so double-check.
                 throw new Error('Fatal trace logic error - impossible children');
               }
 
-              actualGrandparentTask.children.pop();
-              actualGrandparentTask.children.push(actualParentTask);
+              grandparentTask.children.pop();
+              grandparentTask.children.push(parentTask);
             }
 
-            actualParentTask.parent = actualGrandparentTask;
-            actualParentTask.startTime = actualChildTask.startTime;
-            actualParentTask.duration = actualParentTask.endTime - actualParentTask.startTime;
-            currentTask = actualParentTask;
-            nextTask = actualChildTask;
+            parentTask.parent = grandparentTask;
+            parentTask.startTime = childTask.startTime;
+            parentTask.duration = parentTask.endTime - parentTask.startTime;
+            currentTask = parentTask;
+            nextTask = childTask;
           } else {
             // None of our workarounds matched. It's time to throw an error.
             // When we fall into this error, it's usually because of one of two reasons.
@@ -376,7 +376,7 @@ class MainThreadTasks {
     // Phase 5 - Sort once more in case the order changed after wiring up relationships.
     return sortedTasks.sort(
       (taskA, taskB) => taskA.startTime - taskB.startTime || taskB.duration - taskA.duration
-    );;
+    );
   }
 
   /**
