@@ -5,77 +5,78 @@
  */
 'use strict';
 
-/** @type {Array<Smokehouse.TestDfn>} */
+// TODO(bckenny): drop batch for parallel/not
+/** @type {ReadonlyArray<Smokehouse.TestDfn>} */
 const smokeTests = [{
   id: 'a11y',
   expectations: require('./a11y/expectations.js'),
   config: require('./a11y/a11y-config.js'),
-  batch: 'parallel-first',
+  batch: 'parallel',
 }, {
   id: 'errors',
-  expectations: require('./error-expectations.js'),
-  config: require('./error-config.js'),
-  batch: 'errors',
+  expectations: require('./errors/error-expectations.js'),
+  config: require('./errors/error-config.js'),
+  batch: 'serial',
 }, {
   id: 'oopif',
-  expectations: require('./oopif-expectations.js'),
-  config: require('./oopif-config.js'),
-  batch: 'parallel-first',
+  expectations: require('./oopif/oopif-expectations.js'),
+  config: require('./oopif/oopif-config.js'),
+  batch: 'parallel',
 }, {
   id: 'pwa',
-  expectations: require('./pwa-expectations.js'),
-  config: require('./pwa-config.js'),
-  batch: 'parallel-second',
+  expectations: require('./pwa/pwa-expectations.js'),
+  config: require('./pwa/pwa-config.js'),
+  batch: 'parallel',
 }, {
   id: 'pwa2',
-  expectations: require('./pwa2-expectations.js'),
-  config: require('./pwa-config.js'),
-  batch: 'parallel-second',
+  expectations: require('./pwa/pwa2-expectations.js'),
+  config: require('./pwa/pwa-config.js'),
+  batch: 'parallel',
 }, {
   id: 'pwa3',
-  expectations: require('./pwa3-expectations.js'),
-  config: require('./pwa-config.js'),
-  batch: 'parallel-first',
+  expectations: require('./pwa/pwa3-expectations.js'),
+  config: require('./pwa/pwa-config.js'),
+  batch: 'parallel',
 }, {
   id: 'dbw',
   expectations: require('./dobetterweb/dbw-expectations.js'),
-  config: require('./dbw-config.js'),
-  batch: 'parallel-second',
+  config: require('./dobetterweb/dbw-config.js'),
+  batch: 'parallel',
 }, {
   id: 'redirects',
   expectations: require('./redirects/expectations.js'),
-  config: require('./redirects-config.js'),
-  batch: 'parallel-first',
+  config: require('./redirects/redirects-config.js'),
+  batch: 'parallel',
 }, {
   id: 'seo',
   expectations: require('./seo/expectations.js'),
-  config: require('./seo-config.js'),
-  batch: 'parallel-first',
+  config: require('./seo/seo-config.js'),
+  batch: 'parallel',
 }, {
   id: 'offline',
   expectations: require('./offline-local/offline-expectations.js'),
-  config: require('./offline-config.js'),
-  batch: 'offline',
+  config: require('./offline-local/offline-config.js'),
+  batch: 'serial',
 }, {
   id: 'byte',
   expectations: require('./byte-efficiency/expectations.js'),
-  config: require('./byte-config.js'),
-  batch: 'perf-opportunity',
+  config: require('./byte-efficiency/byte-config.js'),
+  batch: 'serial',
 }, {
   id: 'perf',
   expectations: require('./perf/expectations.js'),
   config: require('./perf/perf-config.js'),
-  batch: 'perf-metric',
+  batch: 'serial',
 }, {
   id: 'lantern',
-  expectations: require('./perf/lantern-expectations.js'),
-  config: require('./lantern-config.js'),
-  batch: 'parallel-first',
+  expectations: require('./lantern/lantern-expectations.js'),
+  config: require('./lantern/lantern-config.js'),
+  batch: 'parallel',
 }, {
   id: 'metrics',
   expectations: require('./tricky-metrics/expectations.js'),
-  config: require('../../../lighthouse-core/config/perf-config.js'),
-  batch: 'parallel-second',
+  config: require('../../../../lighthouse-core/config/perf-config.js'),
+  batch: 'parallel',
 }];
 
 module.exports = smokeTests;
