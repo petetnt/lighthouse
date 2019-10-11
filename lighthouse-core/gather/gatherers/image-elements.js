@@ -135,6 +135,7 @@ class ImageElements extends Gatherer {
     /** @type {Map<string, {naturalWidth: number, naturalHeight: number}>} */
     this._naturalSizeCache = new Map();
   }
+  
   /**
    * @param {Driver} driver
    * @param {LH.Artifacts.ImageElement} element
