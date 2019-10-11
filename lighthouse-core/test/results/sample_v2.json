@@ -1481,7 +1481,7 @@
     },
     "third-party-summary": {
       "id": "third-party-summary",
-      "title": "Limit third-party usage",
+      "title": "Minimize third-party usage",
       "description": "Third-party code can significantly impact load performance. Limit the number of redundant third-party providers and try to load third-party code after your page has primarily finished loading. [Learn more](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/).",
       "score": 1,
       "scoreDisplayMode": "binary",

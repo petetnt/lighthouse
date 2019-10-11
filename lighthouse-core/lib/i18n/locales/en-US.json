@@ -1089,7 +1089,7 @@
     "message": "Reduce the impact of third-party code"
   },
   "lighthouse-core/audits/third-party-summary.js | title": {
-    "message": "Limit third-party usage"
+    "message": "Minimize third-party usage"
   },
   "lighthouse-core/audits/time-to-first-byte.js | description": {
     "message": "Time To First Byte identifies the time at which your server sends a response. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/ttfb)."
