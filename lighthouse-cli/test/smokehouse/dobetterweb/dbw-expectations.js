@@ -6,9 +6,10 @@
 'use strict';
 
 /**
+ * @type {Array<Smokehouse.ExpectedRunnerResult>}
  * Expected Lighthouse audit values for Do Better Web tests.
  */
-module.exports = [
+const expectations = [
   {
     artifacts: {
       Stacks: [{
@@ -16,6 +17,107 @@ module.exports = [
       }, {
         id: 'wordpress',
       }],
+      LinkElements: [
+        {
+          rel: 'stylesheet',
+          href: 'http://localhost:10200/dobetterweb/dbw_tester.css?delay=100',
+          hrefRaw: 'http://localhost:10200/dobetterweb/dbw_tester.css?delay=100',
+          hreflang: '',
+          as: '',
+          crossOrigin: null,
+          source: 'head',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'http://localhost:10200/dobetterweb/unknown404.css?delay=200',
+          hrefRaw: 'http://localhost:10200/dobetterweb/unknown404.css?delay=200',
+          hreflang: '',
+          as: '',
+          crossOrigin: null,
+          source: 'head',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'http://localhost:10200/dobetterweb/dbw_tester.css?delay=2200',
+          hrefRaw: 'http://localhost:10200/dobetterweb/dbw_tester.css?delay=2200',
+          hreflang: '',
+          as: '',
+          crossOrigin: null,
+          source: 'head',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'http://localhost:10200/dobetterweb/dbw_disabled.css?delay=200&isdisabled',
+          hrefRaw: 'http://localhost:10200/dobetterweb/dbw_disabled.css?delay=200&isdisabled',
+          hreflang: '',
+          as: '',
+          crossOrigin: null,
+          source: 'head',
+        },
+        {
+          rel: 'import',
+          href: 'http://localhost:10200/dobetterweb/dbw_partial_a.html?delay=200',
+          hrefRaw: 'http://localhost:10200/dobetterweb/dbw_partial_a.html?delay=200',
+          hreflang: '',
+          as: '',
+          crossOrigin: null,
+          source: 'head',
+        },
+        {
+          rel: 'import',
+          href: 'http://localhost:10200/dobetterweb/dbw_partial_b.html?delay=200&isasync',
+          hrefRaw: 'http://localhost:10200/dobetterweb/dbw_partial_b.html?delay=200&isasync',
+          hreflang: '',
+          as: '',
+          crossOrigin: null,
+          source: 'head',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'http://localhost:10200/dobetterweb/dbw_tester.css?delay=3000&capped',
+          hrefRaw: 'http://localhost:10200/dobetterweb/dbw_tester.css?delay=3000&capped',
+          hreflang: '',
+          as: '',
+          crossOrigin: null,
+          source: 'head',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'http://localhost:10200/dobetterweb/dbw_tester.css?delay=2000&async=true',
+          hrefRaw: 'http://localhost:10200/dobetterweb/dbw_tester.css?delay=2000&async=true',
+          hreflang: '',
+          as: 'style',
+          crossOrigin: null,
+          source: 'head',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'http://localhost:10200/dobetterweb/dbw_tester.css?delay=3000&async=true',
+          hrefRaw: 'http://localhost:10200/dobetterweb/dbw_tester.css?delay=3000&async=true',
+          hreflang: '',
+          as: '',
+          crossOrigin: null,
+          source: 'head',
+        },
+        {
+          rel: 'alternate stylesheet',
+          href: 'http://localhost:10200/dobetterweb/empty.css',
+          hrefRaw: 'http://localhost:10200/dobetterweb/empty.css',
+          hreflang: '',
+          as: '',
+          crossOrigin: null,
+          source: 'head',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'http://localhost:10200/dobetterweb/dbw_tester.css?scriptActivated&delay=200',
+          hrefRaw: 'http://localhost:10200/dobetterweb/dbw_tester.css?scriptActivated&delay=200',
+          hreflang: '',
+          as: '',
+          crossOrigin: null,
+          source: 'head',
+        },
+      ],
       TagsBlockingFirstPaint: [
         {
           tag: {
@@ -109,7 +211,7 @@ module.exports = [
               },
               {
                 source: 'Runtime.exception',
-                description: 'Error: An error\n    at http://localhost:10200/dobetterweb/dbw_tester.html:57:38',
+                description: /^Error: A distinctive error\s+at http:\/\/localhost:10200\/dobetterweb\/dbw_tester.html:\d+:\d+$/,
                 url: 'http://localhost:10200/dobetterweb/dbw_tester.html',
               },
             ],
@@ -261,11 +363,11 @@ module.exports = [
         },
         'dom-size': {
           score: 1,
-          numericValue: 137,
+          numericValue: 141,
           details: {
             items: [
-              {statistic: 'Total DOM Elements', value: '137'},
-              {statistic: 'Maximum DOM Depth', value: '3'},
+              {statistic: 'Total DOM Elements', value: '141'},
+              {statistic: 'Maximum DOM Depth', value: '4'},
               {
                 statistic: 'Maximum Child Elements',
                 value: '100',
@@ -278,3 +380,5 @@ module.exports = [
     },
   },
 ];
+
+module.exports = expectations;
